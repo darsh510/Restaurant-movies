@@ -1,0 +1,17 @@
+<link href='http://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet' type='text/css'>
+<link href="{{=URL('static', 'css/nav.css')}}" rel="stylesheet" type="text/css" />
+<table id="navigation" > 
+  <tr>
+    <td><a href ="{{=URL(r=request,f='my_activity')}}">Check your activity</a></td>
+
+    {{if not auth.user:}}
+    <td><a href="http://127.0.0.1:8000/nikhil/default/user/login">Login</a></td>
+    <td><a href="http://127.0.0.1:8000/nikhil/default/user/register">Register</a></td>
+    {{else:}}
+    <td><a href ="{{=URL(r=request,f='my_activity')}}">Welcome {{=auth.user.first_name}}</a></td>
+    <td><a href ="http://127.0.0.1:8000/nikhil/default/user/logout?_next=/nikhil/default/index">Logout</a></td>
+    {{pass}}
+  </tr>
+</table>
+<div id="logo"><a href="http://127.0.0.1:8000/nikhil/default/index"><img src="{{=URL('static', 'images/LOGO.png')}}"></a></div>
+
